@@ -1,0 +1,51 @@
+<!-- Create an HTML form  for students course registration with following fields 
+a. student name(textbox)  
+b. age (textbox with numbers only ) 
+c. dob (calender) 
+d. select course (dropdown) 
+e. emai ID
+ f. phone number min 10 max 12 numbers 
+ g. submit btton (should display Register on top of it ) 
+ h. reset button. -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <div class="out">
+      Registration Form
+      <div class="in">
+        <label for="studentName">Name</label>
+
+        <input type="text" value="Student Name" />
+        <label for="age">Age</label>
+
+        <input type="number" value="Age" />
+        <label for="dob">Date of Birth</label>
+
+        <input type="date" value="Date of Birth" />
+        <label for="course">Select Course</label>
+
+        <select required>
+          <option value="math">Math</option>
+          <option value="science">Science</option>
+          <option value="history">History</option>
+        </select>
+        <label for="email">Email ID</label>
+
+        <input type="email" value="email" />
+        <label for="phoneNumber">Phone Number</label>
+
+        <input type = "text"  minlength="10" maxlength="12">
+        <label for="password">Password</label>
+        <input type="password" placeholder="password" required />
+        <input type="submit" value="Register" />
+        <input type="reset" value="Reset" />
+      </div>
+    </div>
+  </body>
+</html>

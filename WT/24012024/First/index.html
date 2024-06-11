@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+    }
+    .login-box {
+      max-width: 80vh;
+      margin: 50px auto;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    table {
+      width: 100%;
+    }
+    table, td {
+      border: none;
+    }
+    td {
+      padding: 10px;
+      text-align: left;
+    }
+   input{
+      width: 50vh;
+      padding: 8px;
+      margin: 5px 0;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+    }
+    input[type="submit"]{
+        width: 500px;
+      background-color: #4caf50;
+      color: white;
+      cursor: pointer;
+    }
+    input[type="submit"]:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-box">
+    <h2>Login</h2>
+    <form>
+      <table>
+        <tr>
+          <td>Username:</td>
+          <td><input type="text" name="username" required></td>
+        </tr>
+        <tr>
+          <td>Password:</td>
+          <td><input type="password" name="password" required></td>
+        </tr>
+        <tr align="center">
+          <td colspan="2"><input type="submit" id="aa" value="Login"></td>
+        </tr>
+      </table>
+    </form>
+  </div>
+</body>
+</html>

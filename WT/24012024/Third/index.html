@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sports Selection Form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="out">Sports Selection Form
+        <div class="in">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Student Name" required>
+
+            <label for="pwd">Password</label>
+            <input type="password" id="pwd" name="pwd" placeholder="Password" required>
+
+            <label for="address">Address</label>
+            <input type="text" id="address" name="address" placeholder="Address" required>
+
+            <label for="game">Select Game</label>
+            <select id="game" name="game" required>
+                <option value="football">Football</option>
+                <option value="basketball">Basketball</option>
+                <option value="tennis">Tennis</option>
+            </select>
+<!-- 
+            <label for="gender">Gender</label>
+            <input type="radio" id="male" name="gender" value="male" required>
+            <p>Male</p>
+            <input type="radio" id="female" name="gender" value="female" required>
+            <p>Female</p>  -->
+            <div class="gender" style="margin: 10px 0;">
+                <label>Gender</label>
+                <div class="radio-group" style="display: flex; justify-content: space-between;">
+                    <input type="radio" id="male" name="gender" value="male" required style="margin-right: 2px;">
+                    <label for="male"  style="margin-right: 1px;">Male</label>
+            
+                    <input type="radio" id="female" name="gender" value="female" required style="margin-left: 2px;">
+                    <label for="female"  style="margin-left: 1x;">Female</label>
+                </div>
+            </div>
+            
+
+
+
+            <label for="age">Age</label>
+            <input type="number" id="age" name="age" placeholder="Age" required>
+
+            <input type="submit" value="Register">
+            <input type="reset" value="Reset">
+        </div>
+    </div>
+</body>
+</html>
