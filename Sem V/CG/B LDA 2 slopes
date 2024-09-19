@@ -1,0 +1,89 @@
+#include <GL/glut.h>
+#include <stdio.h>
+#include <math.h>
+
+// Fixed coordinates for the lines
+int x1_global = 100, y1_global = 100, x2_global = 400, y2_global = 300;  // Line with slope < 1
+int x3_global = 200, y3_global = 100, x4_global = 300, y4_global = 400;  // Line with slope > 1
+
+// Function to set pixel
+void setPixel(int x, int y) {
+    glBegin(GL_POINTS);
+    glVertex2i(x, y);
+    glEnd();
+    glFlush();
+}
+
+// Function to draw a line using Bresenham's Algorithm
+void bresenhamLine(int x_start, int y_start, int x_end, int y_end) {
+    int dx = abs(x_end - x_start), dy = abs(y_end - y_start);
+    int p = 2 * dy - dx;
+    int x, y;
+
+    if (x_start > x_end) {
+        x = x_end;
+        y = y_end;
+        x_end = x_start;
+    } else {
+        x = x_start;
+        y = y_start;
+    }
+
+    setPixel(x, y);
+
+    while (x < x_end) {
+        x++;
+        if (p < 0) {
+            p = p + 2 * dy;
+        } else {
+            y++;
+            p = p + 2 * (dy - dx);
+        }
+        setPixel(x, y);
+    }
+}
+
+// Display callback
+void display() {
+    glClear(GL_COLOR_BUFFER_BIT);
+
+    // First line: Calculate the slope
+    float slope1 = (float)(y2_global - y1_global) / (x2_global - x1_global);
+
+    // If slope is less than 1, draw in red
+    if (fabs(slope1) < 1) {
+        glColor3f(1.0, 0.0, 0.0);  // Red color for m < 1
+        bresenhamLine(x1_global, y1_global, x2_global, y2_global);
+    }
+
+    // Second line: Calculate the slope
+    float slope2 = (float)(y4_global - y3_global) / (x4_global - x3_global);
+
+    // If slope is greater than or equal to 1, draw in blue
+    if (fabs(slope2) >= 1) {
+        glColor3f(0.0, 0.0, 1.0);  // Blue color for m >= 1
+        bresenhamLine(x3_global, y3_global, x4_global, y4_global);
+    }
+}
+
+void init() {
+    glClearColor(1.0, 1.0, 1.0, 1.0);
+    glPointSize(2.0);
+    glMatrixMode(GL_PROJECTION);
+    glLoadIdentity();
+    glOrtho(0.0, 500.0, 0.0, 500.0, -1.0, 1.0);  // Use glOrtho instead of gluOrtho2D
+}
+
+int main(int argc, char **argv) {
+    glutInit(&argc, argv);
+    glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB);
+    glutInitWindowSize(500, 500);
+    glutInitWindowPosition(100, 100);
+    glutCreateWindow("Bresenham's Line Drawing Algorithm");
+
+    init();
+    glutDisplayFunc(display);
+    glutMainLoop();
+
+    return 0;
+}
